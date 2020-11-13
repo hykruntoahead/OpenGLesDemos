@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".point.DrawPoint" />
         <activity android:name=".line.DrawLine" />
+        <activity android:name=".triangle.DrawTriangle" />
     </application>
 
 </manifest>
