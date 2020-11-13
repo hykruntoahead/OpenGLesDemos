@@ -110,11 +110,13 @@ OpenGL ES 图形庫最终的结果是在二维平面上显示 3D 物体:
     ，此時你可以使用縮放放大功能显示照片的部分。对应到 3D 绘图相当于 viewport transformation （可以對最終的图像縮放显示等）<br/>
 ######  Viewing transformation (平移，选择相机）和 Modeling transformation（平移，选择模型）可以合并起來看，只是应为向左移动相机，和相机不同将模型右移的效果是等效的
 所以在 OpenGL ES 中<br/>
+
         * 使用 GL10.GL_MODELVIEW 来同時指定 viewing matrix 和 modeling matrix.
         * 使用 GL10.GL_PROJECTION 指定投影变换，OpenGL 支持透視投影和正侧投影（一般用于工程制图）。
         * 使用 glViewport 指定 Viewport 变换。
 
 此时再看看下面的代码，就不是很难理解了，后面就逐步介绍各种坐标变换。
+
     ```
     public void onSurfaceChanged(GL10 gl, int width, int height) {
     // Sets the current view port to the new size.
