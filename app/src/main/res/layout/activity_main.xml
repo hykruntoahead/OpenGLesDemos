@@ -49,5 +49,14 @@
         app:backgroundTint="#03A9F4"
         android:layout_marginBottom="10dp"/>
 
+    <Button
+        android:id="@+id/btn_to_ds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        android:text="Side20"
+        app:backgroundTint="#03A9F4"
+        android:layout_marginBottom="10dp"/>
+
 </LinearLayout>
 </ScrollView>

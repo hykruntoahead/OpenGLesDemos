@@ -10,6 +10,7 @@ import android.view.View;
 import com.ykhe.openglesdemos.helloword.HelloWorld;
 import com.ykhe.openglesdemos.line.DrawLine;
 import com.ykhe.openglesdemos.point.DrawPoint;
+import com.ykhe.openglesdemos.sides.DrawSides20;
 import com.ykhe.openglesdemos.triangle.DrawTriangle;
 
 /**
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_to_dp).setOnClickListener(this);
         findViewById(R.id.btn_to_dl).setOnClickListener(this);
         findViewById(R.id.btn_to_dt).setOnClickListener(this);
+        findViewById(R.id.btn_to_ds).setOnClickListener(this);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_dt:
                 startActivity(new Intent(this, DrawTriangle.class));
+            case R.id.btn_to_ds:
+                startActivity(new Intent(this, DrawSides20.class));
             default:
                 break;
         }
