@@ -131,3 +131,4 @@ OpenGL ES 图形庫最终的结果是在二维平面上显示 3D 物体:
      gl.glLoadIdentity();
     }
     ```
+扩展:[gluPerspective和gluLookAt](https://www.cnblogs.com/arxive/p/7001530.html)
