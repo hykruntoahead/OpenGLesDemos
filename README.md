@@ -81,3 +81,6 @@ glTexCoordPointer(int size, int type, int stride, Buffer pointer)
 glNormalPointer(int type, int stride, Buffer pointer)
 ```
 
+### 三.绘制点Point
+参看代码:[DrawPoint](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/app/src/main/java/com/ykhe/openglesdemos/point/DrawPoint.java)
+
