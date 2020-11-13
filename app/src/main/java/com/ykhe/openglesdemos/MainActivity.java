@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.ykhe.openglesdemos.helloword.HelloWorld;
+import com.ykhe.openglesdemos.line.DrawLine;
 import com.ykhe.openglesdemos.point.DrawPoint;
 
 /**
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_to_hw).setOnClickListener(this);
         findViewById(R.id.btn_to_dp).setOnClickListener(this);
+        findViewById(R.id.btn_to_dl).setOnClickListener(this);
     }
 
     @Override
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_dp:
                 startActivity(new Intent(this, DrawPoint.class));
+                break;
+            case R.id.btn_to_dl:
+                startActivity(new Intent(this, DrawLine.class));
                 break;
         }
     }
