@@ -86,3 +86,6 @@ glNormalPointer(int type, int stride, Buffer pointer)
 
 ### 四.绘制线段
 参看代码:[DrawLine](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/app/src/main/java/com/ykhe/openglesdemos/line/DrawLine.java)
+
+### 五.绘制三角形
+参看代码:[DrawTriangle](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/app/src/main/java/com/ykhe/openglesdemos/triangle/DrawTriangle.java)
