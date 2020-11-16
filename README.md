@@ -155,7 +155,7 @@ OpenGL ES 中使用四个分量(x,y,z,w)来定义空间一个点，使用 4 个�
 ###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，
 如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。
 <center>
-![avatar](/png/locate_64.png)
+![avatar](../png/locate_64.png)
 </center>
 
 ##### Translate平移变换
