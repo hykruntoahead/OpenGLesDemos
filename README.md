@@ -226,7 +226,10 @@ float upX, float upY, float upZ)
 ```
 
 eyex,eyey,eyez 指定观测点的空间坐标。
+
 tarx,tary,tarz ，指定被观测物体的参考点的坐标。
+
 upx,upy,upz 指定观测点方向为“上”的向量。
+
 
 注意: 这些坐标都采用世界坐标系。
