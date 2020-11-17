@@ -153,10 +153,8 @@ OpenGL ES 中使用四个分量(x,y,z,w)来定义空间一个点，使用 4 个�
     * 特定的矩阵变换平移 glTranslatef(),旋转 glRotatef() 和缩放 glScalef()
 
 ###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，
-如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。
-<center>
-![](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/png/locate_64.png)
-</center>
+如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。 
+![](png/locate_64.png) 
 
 ##### Translate平移变换
 方法 public abstract void glTranslatef (float x, float y, float z) 用于坐标平移变换。
@@ -209,7 +207,7 @@ gl.glMultMatrixf(L);
 v 首先与 L 相乘，结果 Lv 再和M相乘，所得结果 MLv 再和N相乘。可以看到坐标变换的次序和指令指定的次序正好相反。
 而实际代码运行时，坐标无需进行三次变换运算，顶点 v 只需和计算出的最终变换矩阵 NML 相乘一次就可以了。
 
-因此如果你采用<br>世界坐标系（原点和X，Y，Z轴方向固定）</br>来思考坐标变换，代码中坐标变换指令的次序和 顶点和矩阵相乘的次序相反。
+因此如果你采用**世界坐标系（原点和X，Y，Z轴方向固定)** 来思考坐标变换，代码中坐标变换指令的次序和 顶点和矩阵相乘的次序相反。
 
 另外一种想象坐标变换的方法是忘记这种固定的坐标系统，而是使用物体本身的局部坐标系统，这种局部坐标系和物体的相对位置是固定的。
 所有的坐标变换操作都是针对物体的局部坐标系。使用这种方法，代码中矩阵相乘的次序和相对局部坐标系坐标变换的次序是一致的。
@@ -224,8 +222,8 @@ float centerX, float centerY, float centerZ,
 float upX, float upY, float upZ)
 ```
 
-    eyex,eyey,eyez 指定观测点的空间坐标。
-    tarx,tary,tarz ，指定被观测物体的参考点的坐标。
-    upx,upy,upz 指定观测点方向为“上”的向量。
+eyex,eyey,eyez 指定观测点的空间坐标。
+tarx,tary,tarz ，指定被观测物体的参考点的坐标。
+upx,upy,upz 指定观测点方向为“上”的向量。
 
 注意: 这些坐标都采用世界坐标系。
