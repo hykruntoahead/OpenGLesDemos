@@ -152,9 +152,12 @@ OpenGL ES 中使用四个分量(x,y,z,w)来定义空间一个点，使用 4 个�
     * 在栈中保存当前矩阵和从栈中恢复所存矩阵，可以使用 glPushMatrix() 和 glPopMatrix()
     * 特定的矩阵变换平移 glTranslatef(),旋转 glRotatef() 和缩放 glScalef()
 
-###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，
-如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。 
+###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。 
+
+
 ![](png/locate_64.png) 
+
+
 
 ##### Translate平移变换
 方法 public abstract void glTranslatef (float x, float y, float z) 用于坐标平移变换。
