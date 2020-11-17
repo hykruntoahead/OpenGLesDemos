@@ -155,7 +155,7 @@ OpenGL ES 中使用四个分量(x,y,z,w)来定义空间一个点，使用 4 个�
 ###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，
 如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。
 <center>
-![avatar](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/png/locate_64.png)
+![](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/png/locate_64.png)
 </center>
 
 ##### Translate平移变换
@@ -183,3 +183,49 @@ public abstract void glPopMatrix()
 ```
 在进行坐标变换的一个好习惯是在变换前使用 glPushMatrix 保存当前矩阵，完成坐标变换操作后，再调用 glPopMatrix 恢复原先的矩阵设置。
 
+### Viewing 和 Modeling(MODELVIEW) 变换
+
+Viewing 和 Modeling 变换关系紧密，对应到相机拍照为放置三角架和调整被拍物体位置及角度，通常将这两个变换使用一个 modelview 变换矩阵来定义。
+对于同一个坐标变换，可以使用不同的方法来想象这个变换，比如将相机向某个方向平移一段距离，效果等同于将被拍摄的模型(model)向相反的方向平移同样的距离（相对运动）。
+坐标变换的次序会直接影响到最终的变换结果.
+
+所有的 Viewing 和 Modeling 变换操作都可以使用一个4X4 的矩阵来表示，所有后续的 glMultMatrix*() 或其它坐标变换指令
+会使用一个新的变换矩阵M于当前 modelview 矩阵 C 相乘得到一个新的变换矩阵 CM。然后所有顶点坐标v 都会和这个新的变换矩阵相乘。
+这个过程意味着最后发出的坐标变换指令实际上是第一个应用到顶点上的:CMv 。因此一种来理解坐标变换次序的方法是：使用逆序来指定坐标变换。
+如下面代码:
+```
+gl.glMatrixMode(GL_MODELVIEW);
+gl.glLoadIdentity();
+//apply transformation N
+gl.glMultMatrixf(N);
+//apply transformation M
+gl.glMultMatrixf(M);
+//apply transformation L
+gl.glMultMatrixf(L);
+//draw vertex
+...
+```
+上面代码, modelview 矩阵依次为I（单位矩阵）,N,NM 最终为 NML ，最终坐标变换的结果为 NMLv ，也就是N(M(Lv)) ，
+v 首先与 L 相乘，结果 Lv 再和M相乘，所得结果 MLv 再和N相乘。可以看到坐标变换的次序和指令指定的次序正好相反。
+而实际代码运行时，坐标无需进行三次变换运算，顶点 v 只需和计算出的最终变换矩阵 NML 相乘一次就可以了。
+
+因此如果你采用<br>世界坐标系（原点和X，Y，Z轴方向固定）</br>来思考坐标变换，代码中坐标变换指令的次序和 顶点和矩阵相乘的次序相反。
+
+另外一种想象坐标变换的方法是忘记这种固定的坐标系统，而是使用物体本身的局部坐标系统，这种局部坐标系和物体的相对位置是固定的。
+所有的坐标变换操作都是针对物体的局部坐标系。使用这种方法，代码中矩阵相乘的次序和相对局部坐标系坐标变换的次序是一致的。
+
+使用物体局部坐标系，可以更好的了解理解如机械手和太阳系之类的图形系统。
+
+
+Android OpenGL ES 的 GLU 包有一个辅助函数 gluLookAt 提供一个更直观的方法来设置modelview 变换矩阵：
+```
+void gluLookAt(GL10 gl, float eyeX, float eyeY, float eyeZ,
+float centerX, float centerY, float centerZ,
+float upX, float upY, float upZ)
+```
+
+    eyex,eyey,eyez 指定观测点的空间坐标。
+    tarx,tary,tarz ，指定被观测物体的参考点的坐标。
+    upx,upy,upz 指定观测点方向为“上”的向量。
+
+注意: 这些坐标都采用世界坐标系。
