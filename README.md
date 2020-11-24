@@ -352,3 +352,8 @@ public void onSurfaceChanged(GL10 gl, int width, int height) {
  gl.glLoadIdentity();
 }
 ```
+
+
+### 十二.绘制迷你太阳系
+
+参看代码:[DrawSolarSystem](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/app/src/main/java/com/ykhe/openglesdemos/solar_system/DrawSolarSystem.java)
