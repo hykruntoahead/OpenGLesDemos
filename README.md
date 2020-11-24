@@ -332,7 +332,7 @@ Android OpenGL ES 将 z 坐标重新编码，它的值总会在0.0到1.0之间�
 
 并且可以看到透视投影的 aspect 为 width/height ，因此最后的图形不会有变形：
 
-查看源代码,:
+查看示例代码如下:
 ```
 public void onSurfaceChanged(GL10 gl, int width, int height) {
  // Sets the current view port to the new size.
