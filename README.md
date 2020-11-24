@@ -29,6 +29,7 @@ OpenGL ES 支持绘制的基本几何图形分为三类：点，线段，三角�
 ###### GL_TRIANGLE_STRIP 每相邻三个顶点组成一个三角形，为一系列相接三角形构成
 ###### GL_TRIANGLE_FAN 以一个点为三角形公共顶点，组成一系列相邻的三角形
 ##### OpenGL ES 提供了两类方法来绘制一个空间几何图形：
+
 ```
     public abstract void glDrawArrays(int mode, int first, int count)
         使用 VetexBuffer 来绘制，顶点的顺序由 vertexBuffer 中的顺序指定。
@@ -96,24 +97,24 @@ glNormalPointer(int type, int stride, Buffer pointer)
 ### 七.三维坐标系及坐标变换初步
 OpenGL ES 图形庫最终的结果是在二维平面上显示 3D 物体:
 ###### 这个过程可以分成三个部分：<br/>
-    * 坐标变换，坐标变换通过使用变换矩阵来描述，因此学习 3D 绘图需要了解一些空间几何，矩阵运算的知识。三维坐标通常使用齐次坐标来定义。
-    变换矩阵操作可以分为视角（Viewing），模型（Modeling）和投影（Projection）操作，這些操作可以有选择，平移，缩放，正侧投影，透视投影等。<br/>
-    * 由于最終的 3D 模型需要在一个矩形窗口中显示，因此在这个窗口之外的部分需要裁剪掉以提高绘图效率，对应3D 图形，裁剪是将处在剪切面之外的部分扔掉。<br/>
-    * 在最终绘制到显示器（2D 屏幕），需要建立起变换后的坐标和屏幕像素之间的对应关系，这通常称为「视窗」坐标变换(Viewport) transformation.<br/>
+
+* 坐标变换，坐标变换通过使用变换矩阵来描述，因此学习 3D 绘图需要了解一些空间几何，矩阵运算的知识。三维坐标通常使用齐次坐标来定义。变换矩阵操作可以分为视角（Viewing），模型（Modeling）和投影（Projection）操作，這些操作可以有选择，平移，缩放，正侧投影，透视投影等。<br/>
+* 由于最終的 3D 模型需要在一个矩形窗口中显示，因此在这个窗口之外的部分需要裁剪掉以提高绘图效率，对应3D 图形，裁剪是将处在剪切面之外的部分扔掉。<br/>
+* 在最终绘制到显示器（2D 屏幕），需要建立起变换后的坐标和屏幕像素之间的对应关系，这通常称为「视窗」坐标变换(Viewport) transformation.<br/>
 
 ###### 我们使用照相机拍照的过程做类比，可以更好的理解 3D 坐标变换的过程:
-    1. 拍照时第一步是架起三角架並把相机的镜头指向需要拍摄的场景，对应到 3D 变换为 viewing transformation （平移或是选择 Camera ）<br/>
-    2. 然后摄影师可能需要调整被拍場景中某個物体的角度，位置，比如摄影师給架好三角架后給你拍照时，
-    可以要让你调整站立姿势或是位置。對應到 3D 繪製就是 Modeling transformation （調整所繪模型的位置，角度或是縮放比例）。<br/>
-    3. 之后摄影师可以需要調整镜头取景（拉近或是拍攝遠景），相机取景框所能拍攝的場景會隨鏡頭的伸縮而變換，對應到 3D 繪图則為 Projection transformation(裁剪投影場景）。<br/>
-    4. 按下快門後，对于數碼相机可以直接在屏幕上显示當前拍攝的照片，一般可以充满整個屏幕（相当于将坐标做規範化處理 NDC）
-    ，此時你可以使用縮放放大功能显示照片的部分。对应到 3D 绘图相当于 viewport transformation （可以對最終的图像縮放显示等）<br/>
+
+1. 拍照时第一步是架起三角架並把相机的镜头指向需要拍摄的场景，对应到 3D 变换为 viewing transformation （平移或是选择 Camera ）<br/>
+2. 然后摄影师可能需要调整被拍場景中某個物体的角度，位置，比如摄影师給架好三角架后給你拍照时，可以要让你调整站立姿势或是位置。對應到 3D 繪製就是 Modeling transformation （調整所繪模型的位置，角度或是縮放比例）。<br/>
+3. 之后摄影师可以需要調整镜头取景（拉近或是拍攝遠景），相机取景框所能拍攝的場景會隨鏡頭的伸縮而變換，對應到 3D 繪图則為 Projection transformation(裁剪投影場景）。<br/>
+4. 按下快門後，对于數碼相机可以直接在屏幕上显示當前拍攝的照片，一般可以充满整個屏幕（相当于将坐标做規範化處理 NDC），此時你可以使用縮放放大功能显示照片的部分。对应到 3D 绘图相当于 viewport transformation （可以對最終的图像縮放显示等）<br/>
 ######  Viewing transformation (平移，选择相机）和 Modeling transformation（平移，选择模型）可以合并起來看，只是应为向左移动相机，和相机不同将模型右移的效果是等效的
+
 所以在 OpenGL ES 中<br/>
 
-        * 使用 GL10.GL_MODELVIEW 来同時指定 viewing matrix 和 modeling matrix.
-        * 使用 GL10.GL_PROJECTION 指定投影变换，OpenGL 支持透視投影和正侧投影（一般用于工程制图）。
-        * 使用 glViewport 指定 Viewport 变换。
+* 使用 GL10.GL_MODELVIEW 来同時指定 viewing matrix 和 modeling matrix.
+* 使用 GL10.GL_PROJECTION 指定投影变换，OpenGL 支持透視投影和正侧投影（一般用于工程制图）。
+* 使用 glViewport 指定 Viewport 变换。
 
 此时再看看下面的代码，就不是很难理解了，后面就逐步介绍各种坐标变换。
 
@@ -145,12 +146,12 @@ OpenGL ES 中使用四个分量(x,y,z,w)来定义空间一个点，使用 4 个�
 为了实现 viewing, modeling, projection 坐标变换，需要构造一个4X4 的矩阵 M，对应空间中任意一个顶点 vertex v , 经过坐标变换后的坐标 v’=Mv
 ###### 矩阵本身可以支持加减乘除，对角线全为 1 的 4X4 矩阵成为单位矩阵 Identity Matrix
 
-    * 将当前矩阵设为单位矩阵的指令为 glLoadIdentity()。
-    * 矩阵相乘的指令 glMultMatrix*() 允许指定任意矩阵和当前矩阵相乘。
-    * 选择当前矩阵种类glMatrixMode(). OpenGL ES 可以运行指定 GL_PROJECTION，GL_MODELVIEW 等坐标系，后续的矩阵操作将针对选定的坐标。
-    * 将当前矩阵设置成任意指定矩阵 glLoadMatrix*()
-    * 在栈中保存当前矩阵和从栈中恢复所存矩阵，可以使用 glPushMatrix() 和 glPopMatrix()
-    * 特定的矩阵变换平移 glTranslatef(),旋转 glRotatef() 和缩放 glScalef()
+* 将当前矩阵设为单位矩阵的指令为 glLoadIdentity()。
+* 矩阵相乘的指令 glMultMatrix*() 允许指定任意矩阵和当前矩阵相乘。
+* 选择当前矩阵种类glMatrixMode(). OpenGL ES 可以运行指定 GL_PROJECTION，GL_MODELVIEW 等坐标系，后续的矩阵操作将针对选定的坐标。
+* 将当前矩阵设置成任意指定矩阵 glLoadMatrix*()
+* 在栈中保存当前矩阵和从栈中恢复所存矩阵，可以使用 glPushMatrix() 和 glPopMatrix()
+* 特定的矩阵变换平移 glTranslatef(),旋转 glRotatef() 和缩放 glScalef()
 
 ###### OpenGL 使用了右手坐标系统，右手坐标系判断方法：在空间直角坐标系中，让右手拇指指向x轴的正方向，食指指向y轴的正方向，如果中指能指向z轴的正方向，则称这个坐标系为右手直角坐标系。 
 
