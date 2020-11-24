@@ -185,7 +185,7 @@ public abstract void glPopMatrix()
 ```
 在进行坐标变换的一个好习惯是在变换前使用 glPushMatrix 保存当前矩阵，完成坐标变换操作后，再调用 glPopMatrix 恢复原先的矩阵设置。
 
-### Viewing 和 Modeling(MODELVIEW) 变换
+### 九.Viewing 和 Modeling(MODELVIEW) 变换
 
 Viewing 和 Modeling 变换关系紧密，对应到相机拍照为放置三角架和调整被拍物体位置及角度，通常将这两个变换使用一个 modelview 变换矩阵来定义。
 对于同一个坐标变换，可以使用不同的方法来想象这个变换，比如将相机向某个方向平移一段距离，效果等同于将被拍摄的模型(model)向相反的方向平移同样的距离（相对运动）。
@@ -236,7 +236,7 @@ upx,upy,upz 指定观测点方向为“上”的向量。
 注意: 这些坐标都采用世界坐标系。
 
 
-### 投影变换 Projection
+### 十.投影变换 Projection
 前面 ModelView 变换相当于拍照时放置相机和调整被拍物体的位置和角度。投影变换则对应于**调整相机镜头远近**来取景。
 
 下面代码设置当前 Matrix 模式为 Projection 投影矩阵：
@@ -296,7 +296,7 @@ public void glOrthof(float left, float right,float bottom,float top,float near,f
 透视投影和正侧投影都有6个裁剪面。所有处在裁剪面外部的顶点都需剪裁掉以提高绘图性能。
 
 
-### Viewport变换
+### 十一.Viewport变换
 
 摄影师调整好相机和被拍摄物体的位置角度（modelview) ，对好焦距（projection)后，就可以按下快门拍照了，拍好的照片
 可以在计算机上使用照片浏览器查看照片，放大，缩小，拉伸，并可以将照片显示窗口在屏幕上任意拖放。对应到3D
