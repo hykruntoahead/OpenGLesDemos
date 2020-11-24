@@ -357,3 +357,22 @@ public void onSurfaceChanged(GL10 gl, int width, int height) {
 ### 十二.绘制迷你太阳系
 
 参看代码:[DrawSolarSystem](https://github.com/hykruntoahead/OpenGLesDemos/blob/master/app/src/main/java/com/ykhe/openglesdemos/solar_system/DrawSolarSystem.java)
+
+
+### 十三.颜色Color
+
+OpenGL ES 支持的颜色格式为 RGBA 模式（红，绿，蓝，透明度）。颜色的定义通常使用 Hex 格式0xFF00FF 或十进制格式(255,0,255)，
+在 OpenGL 中却是使用0…1之间的浮点数表示。 0为0，1相当于255（0xFF)。
+
+##### Flat coloring（单色）
+是通知 OpenGL 使用单一的颜色来渲染，OpenGL 将一直使用指定的颜色来渲染直到你指定其它的颜色。
+
+指定颜色的方法为:
+```
+public abstract void glColor4f(float red, float green, float blue, float alpha)
+```
+缺省的 red,green,blue 为1，代表白色。
+
+##### Smooth coloring （平滑颜色过渡）
+当给每个顶点定义一个颜色时，OpenGL自动为不同顶点颜色之间生成中间过渡颜色（渐变色）。
+此外后面还可以使用光照(Lighting) 给物体添加颜色。
