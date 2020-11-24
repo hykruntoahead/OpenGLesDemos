@@ -336,19 +336,19 @@ Android OpenGL ES 将 z 坐标重新编码，它的值总会在0.0到1.0之间�
 查看示例代码如下:
 ```
 public void onSurfaceChanged(GL10 gl, int width, int height) {
- // Sets the current view port to the new size.
+ // 将当前视图端口设置为新的大小
  gl.glViewport(0, 0, width, height);
- // Select the projection matrix
- gl.glMatrixMode(GL10.GL\_PROJECTION);
- // Reset the projection matrix
+ // 选择投影矩阵
+ gl.glMatrixMode(GL10.GL_PROJECTION);
+ // 重置投影矩阵
  gl.glLoadIdentity();
- // Calculate the aspect ratio of the window
+ // 计算窗口的高宽比
  GLU.gluPerspective(gl, 45.0f,
  (float) width / (float) height,
  0.1f, 100.0f);
- // Select the modelview matrix
+ // 选择模型视图矩阵
  gl.glMatrixMode(GL10.GL_MODELVIEW);
- // Reset the modelview matrix
+ // 重置模型视图矩阵
  gl.glLoadIdentity();
 }
 ```
