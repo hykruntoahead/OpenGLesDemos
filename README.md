@@ -395,5 +395,5 @@ OpenGL ES 使用也只能使用三角形来定义一个面(Face)，为了获取�
 ```
 
 
-![](png/cull_face.png)
+![](png/cull_face.jpeg)
 
