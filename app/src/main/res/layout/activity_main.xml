@@ -58,5 +58,13 @@
         app:backgroundTint="#03A9F4"
         android:layout_marginBottom="10dp"/>
 
+    <Button
+        android:id="@+id/btn_to_dss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        android:text="DrawSolarSystem"
+        app:backgroundTint="#03A9F4"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>
 </ScrollView>

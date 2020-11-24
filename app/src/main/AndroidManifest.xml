@@ -25,6 +25,7 @@
         <activity android:name=".line.DrawLine" />
         <activity android:name=".triangle.DrawTriangle" />
         <activity android:name=".sides.DrawSides20" />
+        <activity android:name=".solar_system.DrawSolarSystem" />
     </application>
 
 </manifest>
