@@ -312,7 +312,7 @@ glViewport(int x, int y, int width, int height)
 
 ![](png/glViewport.png)
 
-Android 缺省将 viewport 设置成和显示屏幕大小一致．
+Android 缺省(默认)将 viewport 设置成和显示屏幕大小一致．
 
 
 如果投影变换的宽度/高度比 (aspect) 和最后的 Viewport 的 width/height 比不一致的话，最后显示的图形就可能需要
