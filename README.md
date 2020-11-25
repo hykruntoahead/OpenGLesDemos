@@ -444,6 +444,16 @@ The depth buffer algorithm 在 OpenGL ES 3D 绘制的过程中这个算法是自
 * gl.Clear(GL10.GL_DEPTH_BUFFER_BIT) 清空 Depth Buffer (赋值为 1.0)通常清空 Depth Buffer 和 Color Buffer 同时进行。
 * gl.glClearDepthf(float depth) 指定清空 Depth Buffer 是使用的值，缺省为 1.0，通常无需改变这个值，
 * gl.glEnable(GL10.GL_DEPTH_TEST) 打开 depth Test
-* gl.glDisable(GL10.GL_DEPTH_TEST) 关闭 depth Test
+* gl.glDisable(GL10.GL_DEPTH_TEST) 关闭 depth Test 
 
 
+### 十七.OpenGL 光照模型
+绘制一个球体 ，为了能看出3D效果，给场景中添加光源。如果没有光照，绘出的球看上去和一个二维平面上圆没什么差别，如下图，左边为有光照效果的球体，右边为同一个球体但没有设置光源，看上去就没有立体效果，因此 OpenGL 光照效果对显示3D效果非常明显。
+
+![](png/dhp.png) 
+
+在 OpenGL 光照模型中光源和光照效果可以细分为红，绿，蓝三个部分，光源由红，绿，蓝强度来定义，而物体表面材料由其反射红，绿，蓝的程度和方向来定义。OpenGL 光照模型使用的计算公式是对于现实世界光照的一个近似但效果非常好并适合快速计算。
+
+OpenGL 光照模型中定义的光源可以分别控制，打开或关闭，OpenGL ES支持最多八个光源。
+
+OpenGL 光照模型中最终的光照效果可以分为四个组成部分：Emitted(光源）, ambient(环境光）,diffuse(漫射光）和specular（镜面反射光），最终结果由这四种光叠加而成。 
