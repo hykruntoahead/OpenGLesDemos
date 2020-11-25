@@ -12,6 +12,7 @@ import com.ykhe.openglesdemos.line.DrawLine;
 import com.ykhe.openglesdemos.point.DrawPoint;
 import com.ykhe.openglesdemos.sides.DrawSides20;
 import com.ykhe.openglesdemos.solar_system.DrawSolarSystem;
+import com.ykhe.openglesdemos.sphere.DrawSphere;
 import com.ykhe.openglesdemos.triangle.DrawTriangle;
 
 /**
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_to_dt).setOnClickListener(this);
         findViewById(R.id.btn_to_ds).setOnClickListener(this);
         findViewById(R.id.btn_to_dss).setOnClickListener(this);
+        findViewById(R.id.btn_to_dsp).setOnClickListener(this);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -46,10 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_dt:
                 startActivity(new Intent(this, DrawTriangle.class));
+                break;
             case R.id.btn_to_ds:
                 startActivity(new Intent(this, DrawSides20.class));
+                break;
             case R.id.btn_to_dss:
                 startActivity(new Intent(this, DrawSolarSystem.class));
+                break;
+            case R.id.btn_to_dsp:
+                startActivity(new Intent(this, DrawSphere.class));
+                break;
             default:
                 break;
         }
