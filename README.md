@@ -405,7 +405,7 @@ OpenGL ES 中的 FrameBuffer 指的是存储像素的内存空间。对应一个
 
 此外 OpenGL ES 还定义了一个称为遮罩(Stencil) Buffer,可以将屏幕显示局限在某个由 **Stencil Buffer** 定义的区域，在日常生活中常见的 Stencil Buffer 示例时使用纸质模板在墙上或是 T 桖上印刷文字或是图像：
 
-![](png/buffer.png)
+![](png/buffer.jpeg)
 
 在 OpenGL ES 允许配置 Color Buffer 中 R,G,B,A 的颜色位数，Depth Buffer 的位数，以及 Stencil Buffer的位数:
 
