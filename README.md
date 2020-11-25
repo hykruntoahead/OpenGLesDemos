@@ -425,7 +425,7 @@ OpenGL ES 中 Depth Buffer 保存了像素与观测点之间的距离信息，�
 
 一般来说，填充的物体的顺序和其顺序是一致的，而要准确的显示绘制物体在Z轴的前后关系，就需要先绘制距离观测点(ViewPoint)最远的物体，再绘制离观测点较远的物体，最后绘制离观测点最近的物体，因此需要对应所绘制物体进行排序。OpenGL ES 中使用 Depth Buffer 存放需绘制物体的相对距离。
 
-![](png/depth.png)
+![](png/depth.jpeg)
 
 The depth buffer algorithm 在 OpenGL ES 3D 绘制的过程中这个算法是自动被采用的，但是了解这个算法有助于理解 OpenGL ES 部分 API 的使用。
 
