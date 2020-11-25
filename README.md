@@ -401,9 +401,9 @@ OpenGL ES 使用也只能使用三角形来定义一个面(Face)，为了获取�
 
 OpenGL ES 中的 FrameBuffer 指的是存储像素的内存空间。对应一个二维图像，如果屏幕分辨率为1280X1024 ，如果屏幕支持 24 位真彩色 (RGB)，则存储这个屏幕区域的内存至少需要 1024X1280X3 个字节。此外如果需要支持透明度（Alpha），则一个像素需要 4 个字节。
 
-对应 3D 图像来说，上面存储显示颜色的 Buffer 称为 Color Buffer，除 Color Buffer 之外，还需要存储每个像素和 View Point 之间的距离，OpenGL ES 中使用 Depth Buffer 存储像素与眼睛（eye 或是 view point) 的距离，Depth Buffer 也可称为 z Buffer.
+对应 3D 图像来说，上面存储显示颜色的 Buffer 称为 **Color Buffer**，除 Color Buffer 之外，还需要存储每个像素和 View Point 之间的距离，OpenGL ES 中使用 **Depth Buffer** 存储像素与眼睛（eye 或是 view point) 的距离，Depth Buffer 也可称为 z Buffer.
 
-此外 OpenGL ES 还定义了一个称为遮罩(Stencil) Buffer,可以将屏幕显示局限在某个由 Stencil Buffer 定义的区域，在日常生活中常见的 Stencil Buffer 示例时使用纸质模板在墙上或是 T 桖上印刷文字或是图像：
+此外 OpenGL ES 还定义了一个称为遮罩(Stencil) Buffer,可以将屏幕显示局限在某个由 **Stencil Buffer** 定义的区域，在日常生活中常见的 Stencil Buffer 示例时使用纸质模板在墙上或是 T 桖上印刷文字或是图像：
 
 ![](png/buffer.png)
 
