@@ -431,7 +431,7 @@ The depth buffer algorithm 在 OpenGL ES 3D 绘制的过程中这个算法是自
 
 这个算法的基本步骤如下：
 
-1. 将 Depth Buffer 中的值使用最大值清空整个 Depth Buffer，这个最大值缺省为1.0 ，为距离 viewPoint 最远的裁剪的距离。最小值为 0，表示距离 viewPoint 最近的裁剪面的距离。距离大小为相对值而非实际距离，这个值越大表示与 Viewpoint 之间的距离越大。因此将初值这设为 1.0 相当于清空 Depth Buffer。
+- 将 Depth Buffer 中的值使用最大值清空整个 Depth Buffer，这个最大值缺省为1.0 ，为距离 viewPoint 最远的裁剪的距离。最小值为 0，表示距离 viewPoint 最近的裁剪面的距离。距离大小为相对值而非实际距离，这个值越大表示与 Viewpoint 之间的距离越大。因此将初值这设为 1.0 相当于清空 Depth Buffer。
 
 - 当 OpenGL 栅格化所绘制基本图形(Primitive)，将计算该 Primitive 与 viewpoint 之间的距离，保存在 Depth Buffer 中。
 
