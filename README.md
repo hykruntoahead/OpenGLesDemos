@@ -574,7 +574,7 @@ public void glMaterialfv(int face,int pname,FloatBuffer params)
 
 其中 GL_AMBIENT,GL_DIFFUSE,GL_SPECULAR ，GL_EMISSION 为颜色 RGBA 值，GL_SHININESS 值可以从0到128，值越大，光的散射越小：
 
-![](png/gl_shininess.png)
+![](png/gl_shininess.jpeg)
 
 此外，方法 glLightModleXX 给出了光照模型的参数
 ```
