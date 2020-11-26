@@ -559,3 +559,30 @@ gl.glEnable(GL10.GL_RESCALE_NORMAL);
 设置好法线后，需要设置物体表面材料(Material)的反光属性（颜色和材质）。
 将在下篇介绍设置物体表面材料(Material)的反光属性（颜色和材质）并给出一个光照的示例。
 
+
+### 十九.材质及光照示例
+设置物体表面材料(Material)的反光属性（颜色和材质）的方法如下：  
+```
+public void glMaterialf(int face,int pname,float param)
+public void glMaterialfv(int face,int pname,float[] params,int offset)
+public void glMaterialfv(int face,int pname,FloatBuffer params)
+```
+
+- face : 在OpenGL ES中只能使用GL_FRONT_AND_BACK，表示修改物体的前面和后面的材质光线属性
+- pname: 参数类型，可以有GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR, GL_EMISSION, GL_SHININESS。这些参数用在光照方程。
+- param：参数的值。 
+
+其中 GL_AMBIENT,GL_DIFFUSE,GL_SPECULAR ，GL_EMISSION 为颜色 RGBA 值，GL_SHININESS 值可以从0到128，值越大，光的散射越小：
+
+![](png/gl_shininess.png)
+
+此外，方法 glLightModleXX 给出了光照模型的参数
+```
+public void glLightModelf(int pname,float param)
+public void glLightModelfv(int pname,float[] params,int offset)
+public void glLightModelfv(int pname,FloatBuffer params)
+```
+- pname：参数类型，可以为GL_LIGHT_MODEL_AMBIENT和GL_LIGHT_MODEL_TWO_SIDE
+- params：参数的值。
+
+最终顶点的颜色由这些参数（光源，材质光学属性，光照模型）综合决定（光照方程计算出）。
