@@ -457,3 +457,13 @@ The depth buffer algorithm 在 OpenGL ES 3D 绘制的过程中这个算法是自
 OpenGL 光照模型中定义的光源可以分别控制，打开或关闭，OpenGL ES支持最多八个光源。
 
 OpenGL 光照模型中最终的光照效果可以分为四个组成部分：Emitted(光源）, ambient(环境光）,diffuse(漫射光）和specular（镜面反射光），最终结果由这四种光叠加而成。 
+
+### 十八.设置光照效果 Set Lighting
+上一篇简单介绍了 OpenGL 中使用的光照模型，本篇结合 OpenGL ES API 说明如何使用光照效果：
+
+- 设置光源
+- 定义法线
+- 设置物体材料光学属性
+
+##### 光源
+OpenGL ES 中可以最多同时使用八个光源，分别使用0到7表示。
