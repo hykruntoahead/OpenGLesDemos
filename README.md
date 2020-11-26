@@ -497,27 +497,27 @@ gl.glEnable(GL10.GL_LIGHTI0);
 
 平行光将 w 设为0.0，(x,y,z)为平行光的方向： 
 
-![](png/gl_position_parallel.png)
+![](png/gl_position_parallel.jpeg)
 
 对于点光源，将 w 设成非0值，通常设为1.0. (x,y,z)为点光源的坐标位置:
 
-![](png/gl_position_spot.png)
+![](png/gl_position_spot.jpeg)
 
 将点光源设置成聚光灯，需要同时设置 GL_SPOT_DIRECTION,GL_SPOT_CUTOFF 等参数，GL_POSITION的设置和点光源类似：将 w 设成非0值，通常设为1.0. (x,y,z)为点光源的坐标位置。而对于GL_SPOT_DIRECTION 参数，设置聚光的方向(x,y,z)
 
-![](png/gl_spot_direction.png)
+![](png/gl_spot_direction.jpeg)
 
 GL_SPOT_CUTOFF 参数设置聚光等发散角度（0到90度）
 
-![](png/gl_spot_cutoff.png)
+![](png/gl_spot_cutoff.jpeg)
 
 GL_SPOT_EXPONENT 给出了聚光灯光源汇聚光的程度，值越大，则聚光区域越小（聚光能力更强）。
 
-![](png/gl_spot_exponent.png)
+![](png/gl_spot_exponent.jpeg)
 
 对应点光源（包括聚光灯），其它几个参数 GL_CONSTANT_ATTENUATION, GL_LINEAR_ATTENUATION, GL_QUADRATIC_ATTENUATION 为点光源设置光线衰减参数，公式有如下形式，一般无需详细了解：
 
-![](png/gl_attenuation.png)
+![](png/gl_attenuation.jpeg)
 
 在场景中设置好光源后，下一步要为所绘制的图形设置法线(Normal)，只有设置了法线，光源才能在所会物体上出现光照效果。三维平面的法线是垂直于该平面的三维向量。曲面在某点P处的法线为垂直于该点切平面的向量:
 
@@ -558,3 +558,4 @@ gl.glEnable(GL10.GL_RESCALE_NORMAL);
 
 设置好法线后，需要设置物体表面材料(Material)的反光属性（颜色和材质）。
 将在下篇介绍设置物体表面材料(Material)的反光属性（颜色和材质）并给出一个光照的示例。
+
